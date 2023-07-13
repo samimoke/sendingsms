@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+</head>
+<body>
+  
+     {% if messages %}
+         {% for msg in messages %}
+         {% if msg.tags == 'error' %}
+     {% comment %} <div class="error-message" style="background-color: red;"> {% endcomment %}
+            <div class="alert alert-danger" style="color: white; position: fixed; top: 0; text-align:center; width: 100%;">{{ msg }}</div>
+               {% comment %} {{ msg }} {% endcomment %}
+            </div>
+         {% endif %}
+      {% endfor %}
+      {% endif %}
+        {% comment %} <style>
+    .error-message {
+        color: white;
+        position: fixed;
+        top: 0;
+        {% comment %} left: 0;  
+        text-align:center;
+        width: 100%;
+        
+    }
+</style> {% endcomment %}
+    <div class="hero">
+         
+      {% if messages %}
+            {% for msg in messages %}
+         <form action='/send' method="post">
+					 {% csrf_token %}
+            <div class="row">
+                <div class="input-group">
+                    <input type="text" name="topic"  required>
+                    <label for="topic"><i class="fa-sharp fa-solid fa-eject"></i>Topic</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="time" >
+                    <label for="time"><i class="fa-solid fa-clock"></i>Time</label>
+                </div>
+        
+            </div>
+    
+            <div class="row">
+                <div class="input-group">
+                    <input type="text" name="meetlink" >
+                    <label for="meetlink"><i class="fa-solid fa-link"></i>Meeting Link</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="aspace" >
+                    <label for="aspace"><i class="fa-brands fa-space-awesome"></i>A-Space</label>
+                </div>
+            </div>
+               <div class="input-group">
+                    <input type="text" name="group_name" required>
+                    <label for="aspace"><i class="fa-brands fa-space-awesome"></i>group_name</label>
+                </div>
+            
+    
+            <div class="input-group">
+                <input type="text" name="sign"  >
+                <label for="sign"><i class="fa-solid fa-sign-hanging"></i>Sign</label>
+            </div>
+    
+            <div class="input-group">
+                <textarea name="message" rows="8" required></textarea>
+                <label for="message"><i class="fa-solid fa-comment"></i>Message</label>
+            </div>
+            
+                <button type="submit">Send<i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+         {% endfor %}
+        {% endif %}
+    </div>
+   
+ 
+   
+
+</body>
+</html>

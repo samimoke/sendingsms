@@ -1,0 +1,25 @@
+{% extends "admin/base.html" %}
+
+{% block extrahead %}
+{{ block.super }}
+<style type="text/css">
+    .custom-link {
+        float: left;
+        margin: 50px 0 0 12px;
+    }
+</style>
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">My Admin</a></h1>
+{% endblock %}
+
+{% block userlinks %}
+{% if user.is_active and user.is_staff %}
+<div class="custom-link">
+    <a href="{% url 'admin:chart' %}">Chart (Super Admin Only)</a>
+</div>
+{% endif %}
+{{ block.super }}
+{% endblock %}
+

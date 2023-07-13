@@ -1,0 +1,66 @@
+
+<!doctype html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+   <body>
+    {% comment %} {% if user.is_authenticated and user.is_staff and user.is_superuser %} {% endcomment %}
+    {% comment %} <p>home page</p>
+    <form action='/connect' method="post">
+		{% csrf_token %}
+        <p>ip address:</p>
+        <p><input type="text" name="ip" /></p>
+        <p><input type="submit" value="connect" /></p>
+    </form> {% endcomment %}
+     <div class="hero"> {% comment %} style="background-image: url({% static "image/img/3434.jpg" %}) linear-gradient(rgba(0, 0, 0, 0.7), #3551b5);"> {% endcomment %}
+        
+        <form action='/connect' method="post">
+            {% csrf_token %}
+            <h2>Build Connection</h2>
+            <div class="input-group">
+                <input type="text" name="ip" id="sign" required>
+                <label for="sign"><i class="fa-solid fa-sign-hanging"></i>IP Address</label>
+            </div>
+
+            <button type="submit" value="connect">Connect<i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+    </div>
+    {% comment %} {% else %} {% endcomment %}
+   {% comment %} <h1> WELCOME {{user.username}} TO OUR PAGE</h1> {% endcomment %}
+
+    {% comment %} {% else %}
+good morning {% endcomment %}
+    {% comment %} {% with messages=get_flashed_messages() %} {% endcomment %}
+        {% comment %} {% if messages %}
+            {% for msg in messages %}
+                <form action='/send' method="post">
+					 {% csrf_token %}
+                    <p>topic: </p>
+                    <p><input type="text" name="topic" /></p>
+                    <p>meeting link: </p>
+                    <p><input type="text" name="meetlink" /></p>
+                    <p>time: </p>
+                    <p><input type="text" name="time" /></p>
+                    <p>aspace: </p>
+                    <p><input type="text" name="aspace" /></p>
+                    <p>sign: </p>
+                    <p><input type="text" name="sign" /></p>
+                    <p>message: </p>
+                    <p><input type="text" name="message" /></p>
+                    <p>ip address: </p>
+                    <p><input type="text" name="ip" /></p>
+                    <p><input type="submit" value="send" /></p>
+                </form>
+            {% endfor %}
+        {% endif %} {% endcomment %}
+    {% comment %} {% endwith %} {% endcomment %}
+    {% comment %} {% endif %} {% endcomment %}
+</body>
+</html>
+

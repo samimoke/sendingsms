@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Send Message</title>
+</head>
+<body>
+  {% comment %} <h1>Send Message to {{ group.name }}</h1> {% endcomment %}
+  <form method="post" action="{% url 'sendgr'  %}">
+    {% csrf_token %}
+    <input type="text" name="group_id" placeholder="Group ID">
+    <textarea name="message" placeholder="Enter your message"></textarea>
+    <button type="submit">Send Message</button>
+</form>
+</body>
+</html>

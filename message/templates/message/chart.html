@@ -1,0 +1,77 @@
+{% extends 'admin/base.html' %}
+
+  <header>     
+    {% block extraheader %}     
+    <a href={% url 'index' %}> go home</a>     
+    {% endblock %} 
+    {% block extraadminheader %}
+    {{ block.super }}
+    {% endblock %}
+    {% block content %}
+{% load static %}
+<html>
+
+   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Chart js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="{% static 'js/chart.js' %}"></script>
+        <style rel='text/css'>
+            .chr{
+                width:600px;
+
+            }
+        </style>
+
+    <title>Message Charts</title>
+    <body>
+          {% if user.is_authenticated %}
+          <div class='chr'>
+<canvas id="myChart" width="600" height="400"></canvas>
+          </div>
+<a href="{% url 'index' %}"> GO Home</a>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var dates = {{ dates|safe }};
+    var counts = {{ counts|safe }};
+    
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Messages Sent per Date',
+                backgroundColor: 'rgba(44, 180, 191, 1)',
+                borderColor: 'rgba(200, 123, 20, 1)',
+                borderWidth: 1,
+                data: counts,
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+                {% comment %} x:{
+                    
+            
+            	barPercentage: 0.2
+            } {% endcomment %}
+                }
+            
+        }
+    });
+</script>
+
+ {% endif%}
+</body>
+{% comment %} </html> {% endcomment %}
+    
+{% endblock %}

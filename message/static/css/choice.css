@@ -1,0 +1,114 @@
+* {
+    background-color: rgb(153, 197, 224);
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    font-size: 40px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+    color: rgb(18, 1, 255);
+    margin-top: 30px;
+}
+
+.request {
+    background-color: rgb(42, 59, 59);
+    font-family: cursive;
+    margin-top: 0px;
+    text-align: center;
+    border-radius: 20px;
+    padding-top: 20px;
+    /* font-weight: 500; */
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.986);
+}
+
+.request_part {
+    background-color: rgb(42, 59, 59);
+    /* padding: 100px;  */
+    border-radius: 20px;
+    height: 200px;
+    width: 1300px;
+    margin: 0px 40px 0px 40px;
+}
+
+.inner_class {
+    background-color: chocolate;
+    padding: 120px;
+    border-radius: 20px;
+}
+
+.send_message {
+    background-color: chocolate;
+    float: left;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.send_message span {
+    background-color: chocolate;
+    font-size: 30px;
+    color: rgb(4, 235, 4);
+    font-weight: bold;
+}
+
+.send_message button {
+    background-color: rgb(6, 23, 255);
+    text-decoration: none;
+    font-size: 25px;
+    padding: 10px;
+    margin-left: 10px;
+    text-align: center;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.send_message button:hover {
+    background-color: rgb(0, 245, 33);
+    color: black;
+}
+
+.create_group {
+    background-color: chocolate;
+    float: right;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.create_group span {
+    background-color: chocolate;
+    font-size: 30px;
+    color: rgb(31, 15, 241);
+    font-weight: bold;
+}
+
+.create_group button {
+    background-color: rgb(42, 59, 59);
+    text-decoration: none;
+    font-size: 30px;
+    color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.create_group button:hover {
+    background-color: rgb(255, 2, 242);
+}
+
+@media screen and (max-width:600px) {
+    .title {
+        font-size: 17px;
+    }
+
+    .request {
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+    .request_part {
+        flex-direction: column;
+        flex: 1;
+    }
+}

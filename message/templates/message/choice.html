@@ -1,0 +1,55 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sms Getway</title>
+    {% csrf_token %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% comment %} <link rel="stylesheet" href="{% static 'css/style1.css' %}"> {% endcomment %}
+     <link rel="stylesheet" href="{% static 'css/choice.css' %}">
+</head>
+   <body>
+      {% comment %} <div class="hero"> {% endcomment %}
+        {% comment %} <h1> WELCOME {{user.username}} TO OUR PAGE</h1>  {% endcomment %}
+    
+   
+  
+   <div class="hero">
+      <h1 class="title"> Welcome {{user.username}} to our page!</h1>
+
+      <div class="request_part">
+         <h2 class="request">What do you want to get ?</h2><br>
+         <div class="inner_class">
+            <div class="send_message">
+               <span class="send_essage">Send Message?
+                  <!-- <a href="{% url 'home' %}"> Send</a> -->
+                  {% comment %} <button type="button" href="{% url 'home' %}">To Send</button> {% endcomment %}
+                  <a  href="{% url 'home' %}">To Send</a>
+               </span>
+            </div>
+            <div class="create_group">
+               <span class="create_group">dashboard or create group
+                  <a  href="{% url 'admin:index' %}">Create Group</a> To Logout<a  href="{% url 'logout' %}">logout</a>
+                  <!-- <button href="{% url 'admin:index' %}"> Create
+                     Group</b> -->
+               </span>
+            </div>
+              <div class="create_group">
+               {% comment %} <span class="create_group">Do you want to logout
+                  <a  href="{% url 'logout' %}">logout</a> {% endcomment %}
+                  <!-- <button href="{% url 'admin:index' %}"> Create
+                     Group</b> -->
+               </span>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- <style="a:decorate=none"> -->
+</body>
+
+</html>
+</body>
+</html>
+

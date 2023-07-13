@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>MessageLink</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+ {% csrf_token %}
+  <!-- Favicons -->
+ 
+  {% comment %} <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> {% endcomment %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href='{% static "vendor/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/bootstrap-icons/bootstrap-icons.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/glightbox/css/glightbox.min.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/swiper/swiper-bundle.min.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/aos/aos.css" %}' rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+
+  <!-- Template Main CSS File -->
+  <link href='{% static "css/main.css" %}' rel="stylesheet">
+  <link rel="stylesheet" href='{% static "css/fast and reliables.css" %}'>
+  <link rel="stylesheet" href='{% static "css/Login_and_Register.css" %}'>
+
+  <style>
+    .colorbutton{
+      background-color: #ff5e14;
+    }
+  /* start for hero section shape */
+  </style>
+      <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .custom-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+.custom-shape svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 183px;
+}
+.custom-shape .shape-fill {
+    fill: white;
+}
+    </style>
+    <!-- end of the  hero section shape -->
+</head>
+
+<body class="index-page">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 style=" color: #ffffff;">MessageLink</h1>
+        <!-- <span>.</span> -->
+      </a>
+
+      <!-- Nav Menu -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'index' %}" class="active" style=" color: #ffffff;">Home</a></li>
+          <li><a href="{% url 'index' %}#features" style=" color: #ffffff;">Features</a></li>
+          <li><a href="{% url 'index' %}#pricing" style=" color: #ffffff;">Pricing</a></li>
+
+          <li><a href="{% url 'index' %}#contact" style=" color: #ffffff;">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav><!-- End Nav Menu -->
+
+      <a style="background-color:#ff5e14" class="btn-getstarted"  href="{% url 'login' %}" style=" color: #ffffff;">Get Started</a>
+       {% comment %} <a style="background-color:#ff5e14" class="btn-getstarted" {% if request.user.is_authenticated %} href="{% url 'logout' %}" {% else %} href="{% url 'login' %}" {% endif %} style=" color: #ffffff;">Get Started</a> {% endcomment %}
+
+    </div>
+  </header><!-- End Header -->
+
+<!-- registration  start here -->
+<style>
+          .errorl {
+  color: rgb(255, 128, 0);
+}
+</style>
+<section class="containerlr forms">
+    <div class="form login">
+        <div class="form-content">
+            <header>Login</header>
+            <form action="/login/" method="POST" >
+              {% csrf_token %}
+               {{form.as_p}} 
+                <div class="field input-field">
+
+                    <input id="username" type="text" placeholder="username" name="username" class="input">
+                    
+                </div>
+                <div class="field input-field">
+                    <input id="password" type="password"  name="password"  placeholder="Password" class="password">
+                    <span id="passwordError" class="errorl"></span>
+                    <i class='bx bx-hide eye-icon'></i>
+                </div>
+
+                <div class="form-link">
+                    <a href="{% url 'password_reset' %}" class="forgot-pass">Forgot password?</a>
+                </div>
+
+                <div class="field button-field">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+            <div class="form-link">
+                <span>Don't have an account?<a href="{% url 'register' %}" >Signup</a></span> 
+                   {% comment %} <a style="background-color:#ff5e14" class="btn-getstarted"  href="{% url 'register' %}" style=" color: #ffffff;">sign up</a> {% endcomment %}
+                   {% comment %} <a href="{% url 'register' %}" class="link signup-link">Signup</a></span> {% endcomment %}
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="media-options">
+            <a href="{% url 'social:begin' 'facebook' %}" class="field facebook">
+                <i class='bx bxl-facebook facebook-icon'></i>
+                <span>Login with Facebook</span>
+            </a>
+        </div>
+        <div class="media-options">
+          <a href="{% url 'social:begin' 'google-oauth2' %}" class="field google">
+            <i class="fa-brands fa-google-plus-g facebook-icon"></i>
+              <span>Login with Google</span>
+              
+          </a>
+        </div>
+    </div>
+    <!-- Signup Form -->
+
+    <div class="form signup" >
+        <div class="form-content">
+            <header>Signup</header>
+            <form action="{% url 'register' %}"  method="POST"id="registerForm">
+              {% csrf_token %}
+              {{forms.as_p}}
+                {% comment %} <div class="field input-field">
+                    <input type="email" placeholder="Email" class="input" id="emailr">
+                    <span id="emailErrorr" class="errorl"> </span>
+                </div>
+
+                <div class="field input-field">
+                    <input type="password" placeholder="Create password" class="password" id="passwordr">
+                    <span id="passwordErrorr" class="errorl"></span>
+                </div>
+
+                <div class="field input-field">
+                    <input type="password" placeholder="Confirm password" class="password" id="confirmPassword">
+                    <span id="confirmPasswordError" class="errorl"></span>
+                    <i class='bx bx-hide eye-icon'></i>
+                </div> {% endcomment %}
+
+                <div class="field button-field">
+                    <button type="submit">Signup</button>
+                </div>
+            </form>
+            <div class="form-link">
+                <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="media-options">
+            <a href="#" class="field facebook">
+                <i class='bx bxl-facebook facebook-icon'></i>
+                <span>Login with Facebook</span>
+            </a>
+        </div>
+        <div class="media-options">
+            <a href="#" class="field google">
+              <i class="fa-brands fa-google-plus-g facebook-icon"></i>
+                <span>Login with Google</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- registration ends here -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+  <style>
+    .l{
+      /* color: #ff5e14; */
+      color:#ffffff;
+
+    }
+  </style>
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span style=" color: #ffffff;">MessageLink</span>
+          </a>
+          <p style=" color: #ffffff;">We are a group of developers from Jimma university.</p>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter l"></i></a>
+            <a href=""><i class="bi bi-facebook l"></i></a>
+            <a href=""><i class="bi bi-instagram l"></i></a>
+            <a href=""><i class="bi bi-linkedin l"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-6 footer-links">
+          <h4 style=" color: #ffffff;">Pages</h4>
+          <ul>
+            <li><a href="#" style=" color: #ffffff;">Home</a></li>
+            <li><a href="#" style=" color: #ffffff;">About us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-6 footer-links">
+          <h4 style=" color: #ffffff;">Our Services</h4>
+          <ul>
+            <li><a href="#" style=" color: #ffffff;">Web Design</a></li>
+            <li><a href="#" style=" color: #ffffff;">Web Development</a></li>
+          </ul>
+        </div>
+
+
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+
+  <!-- Scroll Top Button -->
+  <a href="#" id="scroll-top" style="background-color: #ff5e14" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src='{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+  <script src='{% static "vendor/glightbox/js/glightbox.min.js" %}'></script>
+  <script src='{% static "vendor/purecounter/purecounter_vanilla.js" %}'></script>
+  <script src='{% static "vendor/isotope-layout/isotope.pkgd.min.js" %}'></script>
+  <script src='{% static "vendor/swiper/swiper-bundle.min.js" %}'></script>
+  <script src='{% static "vendor/aos/aos.js" %}'></script>
+  <script src='{% static "vendor/php-email-form/validate.js" %}'></script>
+
+  <!-- Template Main JS File -->
+  <script src='{% static "js/main.js" %}'></script>
+<script src='{% static "js/Login_and_Register.js" %}'></script>
+
+</body>
+
+</html>
