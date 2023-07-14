@@ -164,7 +164,7 @@ def send(request):
                 if message:
                     msg_parts.append(message)
 
-                msg = "hi " + namesep(member.name) + ",\n" + '\n'.join(msg_parts)
+                msg = "Hi " + namesep(member.name) + ",\n" + '\n'.join(msg_parts)
                 # msg = "Hi " + namesep(member.name) + ",\n" + message_with_info
                 number = str(member.phone_number)
                 sendsms(number, msg, group_name)
