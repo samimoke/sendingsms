@@ -1,55 +1,169 @@
-<!doctype html>
+<!DOCTYPE html>
 {% load static %}
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sms Getway</title>
-    {% csrf_token %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    {% comment %} <link rel="stylesheet" href="{% static 'css/style1.css' %}"> {% endcomment %}
-     <link rel="stylesheet" href="{% static 'css/choice.css' %}">
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+  <title>MessageLink</title>
+  <meta content="" name="description" />
+  <meta content="" name="keywords" />
+
+  <!-- Favicons -->
+
+  <link href='{% static "assets/img/apple-touch-icon.png" %}' rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="choice.css" /> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+
+  <!-- Vendor CSS Files -->
+  <link href='{% static "vendor/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet" />
+  <link href='{% static "vendor/bootstrap-icons/bootstrap-icons.css" %}' rel="stylesheet" />
+  <!-- Template Main CSS File -->
+  <link href='{% static "css/mainchoice.css" %}' rel="stylesheet" />
+  <link href='{% static "css/choice.css" %}' rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="fast and reliables.css"> -->
+  <style>
+    .colorbutton {
+      background-color: #ff5e14;
+    }
+  </style>
+  <!-- end of the  hero section shape -->
 </head>
-   <body>
-      {% comment %} <div class="hero"> {% endcomment %}
-        {% comment %} <h1> WELCOME {{user.username}} TO OUR PAGE</h1>  {% endcomment %}
-    
-   
-  
-   <div class="hero">
-      <h1 class="title"> Welcome {{user.username}} to our page!</h1>
+<body class="index-page">
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>MessageLink</h1>
+        <!-- <span>.</span> -->
+      </a>
 
-      <div class="request_part">
-         <h2 class="request">What do you want to get ?</h2><br>
-         <div class="inner_class">
-            <div class="send_message">
-               <span class="send_essage">Send Message?
-                  <!-- <a href="{% url 'home' %}"> Send</a> -->
-                  {% comment %} <button type="button" href="{% url 'home' %}">To Send</button> {% endcomment %}
-                  <a  href="{% url 'home' %}">To Send</a>
-               </span>
-            </div>
-            <div class="create_group">
-               <span class="create_group">dashboard or create group
-                  <a  href="{% url 'admin:index' %}">Create Group</a> To Logout<a  href="{% url 'logout' %}">logout</a>
-                  <!-- <button href="{% url 'admin:index' %}"> Create
-                     Group</b> -->
-               </span>
-            </div>
-              <div class="create_group">
-               {% comment %} <span class="create_group">Do you want to logout
-                  <a  href="{% url 'logout' %}">logout</a> {% endcomment %}
-                  <!-- <button href="{% url 'admin:index' %}"> Create
-                     Group</b> -->
-               </span>
-            </div>
-         </div>
+      <!-- Nav Menu -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li>
+            <a href="index.html" class="active nave" style="color: #ffffff" class="nave">Home</a>
+          </li>
+          <li class="nave">
+            <a href="index.html#features" class="nave" style="color: #ffffff">Features</a>
+          </li>
+          <li class="nave">
+            <a href="index.html#pricing" class="nave" style="color: #ffffff">Pricing</a>
+          </li>
+
+          <li>
+            <a href="index.html#contact" class="nave" style="color: #ffffff">Contact</a>
+          </li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      <!-- End Nav Menu -->
+
+      <a style="background-color: #ff5e14" class="btn-getstarted" href="{% url 'logout' %}"
+        style="color: #ffffff">Logout</a>
+    </div>
+  </header>
+  <!-- End Header -->
+  <div class="hero bg-white d-flex align-items-center justify-content-center vh-100">
+    <div class="request_part container">
+      <!-- <h2 class="request text-center">Send SMS to your groups or go to dashboard for more options</h2> -->
+      <h3>
+        Choose to send SMS to existing groups or visit dashboard for more
+        features.
+      </h3>
+      <br />
+      <div class="inner_class row justify-content-center">
+        <div class="send_message col-6 col-md-4 d-flex align-items-center mb-3">
+          <span class="send_essage me-2">Send Message?</span>
+          <a href="{% url 'home' %}"><button type="button" href="#" class="btn btn-primary">
+              Send
+            </button></a>
+        </div>
+        <div class="create_group col-6 col-md-4 d-flex align-items-center">
+          <span class="create_group me-2">Go to dashboard?</span>
+          <a href="{% url 'admin:index' %}"><button type="button" href="#" class="btn btn-secondary">
+              Dashboard
+            </button></a>
+        </div>
       </div>
-   </div>
-   <!-- <style="a:decorate=none"> -->
+    </div>
+  </div>
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <style>
+      .l {
+        /* color: #ff5e14; */
+        color: #ffffff;
+      }
+    </style>
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span style="color: #ffffff">MessageLink</span>
+          </a>
+          <p style="color: #ffffff">
+            We are a group of developers from Jimma university.
+          </p>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter l"></i></a>
+            <a href=""><i class="bi bi-facebook l"></i></a>
+            <a href=""><i class="bi bi-instagram l"></i></a>
+            <a href=""><i class="bi bi-linkedin l"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-6 footer-links">
+          <h4 style="color: #ffffff">Pages</h4>
+          <ul>
+            <li><a href="#" style="color: #ffffff">Home</a></li>
+            <li><a href="#" style="color: #ffffff">About us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-6 footer-links">
+          <h4 style="color: #ffffff">Our Services</h4>
+          <ul>
+            <li><a href="#" style="color: #ffffff">Web Design</a></li>
+            <li><a href="#" style="color: #ffffff">Web Development</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer --><!-- End Footer -->
+  <!-- Scroll Top Button -->
+  <a href="#" id="scroll-top" style="background-color: #ff5e14"
+    class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src='{% static "assets/vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+  <script src='{% static "assets/vendor/purecounter/purecounter_vanilla.js" %}'></script>
+  <script src='{% static "assets/vendor/isotope-layout/isotope.pkgd.min.js" %}'></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+  <!-- Template Main JS File -->
+  <script src='{% static "js/main.js" %}'></script>
 </body>
 
 </html>
-</body>
-</html>
-
