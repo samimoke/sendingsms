@@ -1,3 +1,5 @@
+
+text/x-generic urls.py ( Python script, ASCII text executable, with CRLF line terminators )
 """sendsms URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -22,6 +24,8 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 from django.urls import path
 from message import views
+from message.views import logins
+admin.site.login = logins
 
 
     
@@ -37,9 +41,8 @@ urlpatterns = [
     # path('admin/chart', admin.site.admin_view(chart_view), name='message_chart'),
     path('',include('message.urls')),
     path('', include('django.contrib.auth.urls')),
-    path('oauth/', include('social_django.urls',namespace='social')),
+    
 ]
-
 
 
 
