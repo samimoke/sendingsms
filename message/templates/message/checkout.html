@@ -29,25 +29,24 @@
   <link href='{% static "vendor/bootstrap-icons/bootstrap-icons.css" %}' rel="stylesheet" />
   <!-- Template Main CSS File -->
   <link href='{% static "css/mainchoice.css" %}' rel="stylesheet" />
-  {% comment %} <link href='{% static "css/home.css" %}' rel="stylesheet" /> {% endcomment %}
-   <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+  {% comment %} <link href='{% static "css/choice.css" %}' rel="stylesheet" /> {% endcomment %}
   <!-- <link rel="stylesheet" href="fast and reliables.css"> -->
   <style>
-    .hero {
-
-    /* Move the content down by 10% */
-    /* transform: translateY(-20%); */
-    max-height: 65vh;
-
-    overflow-y: hidden;
-}
     .colorbutton {
       background-color: #ff5e14;
+    .herob{
+       max-height: 100vh;
+
+    overflow-y: hidden;
+    } 
+      
     }
   </style>
   <!-- end of the  hero section shape -->
 </head>
+
 <body class="index-page">
+
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container-fluid d-flex align-items-center justify-content-between">
@@ -84,26 +83,78 @@
   </header>
   <!-- End Header -->
   <div class="hero bg-white d-flex align-items-center justify-content-center vh-100">
-    <div class="request_part container">
+    <div class="request_partn container ">
       <!-- <h2 class="request text-center">Send SMS to your groups or go to dashboard for more options</h2> -->
-      <div class="hero"> {% comment %} style="background-image: url({% static "image/img/3434.jpg" %}) linear-gradient(rgba(0, 0, 0, 0.7), #3551b5);"> {% endcomment %}
-        
-        <form action="{% url 'connect' %}" method="POST">
-            {% csrf_token %}
-            <h2>Build Connection</h2>
-            <div class="input-group">
-                <input  type="text" name="ip" id="sign" required>
-                <label for="sign"><i class="fa-solid fa-sign-hanging"></i>IP Address</label>
-            </div>
-
-            <button class="btn btn-primary" type="submit" value="connect">Connect<i class="fa-solid fa-paper-plane"></i></button>
-        </form>
-    </div>
-      
-     
        
+  <form action="https://api.chapa.co/v1/hosted/pay" method="POST" >
+     
+        {% csrf_token %}
+        {{forms.as_p}}
+         <div class="row">
+         <div class="col-md-6 mb-3">
+        {% comment %} <div class="col-lg-6 md-3 col-md-12 " > {% endcomment %}
+          <input class="form-control "  type="hidden" name="public_key" value="CHAPUBK_TEST-JwfJxm0rWivjzRAAJkWi9XlV8p5qQSqQ" />
+          <div>
+             <div>
+        <input style="text-align:center"  class="form-control "  name="first_name"  placeholder="firt_name" />
+          </div>
+          <br>
+           <div>
+        <input  style="text-align:center" class="form-control " name="last_name"  placeholder="last_name" />
+       </div>
+          <br> 
+                <div>
+        <input  style="text-align:center"  class="form-control " name="username"  placeholder="username" />
+       </div>
+        <br> 
+                <div>
+        <input  style="text-align:center" class="form-control " name="email"  placeholder="email" />
+       </div>
       </div>
     </div>
+          <br> 
+          {% comment %} <div class="row"> {% endcomment %}
+          <div class="col-md-6 mb-3">
+           <div>  
+         <input  style="text-align:center"   class="form-control " name="tx_ref" placeholder="referece text"/>  
+     </div>
+          <br>
+           <div>
+        <input  style="text-align:center" class="form-control "  name="amount" placeholder="amount">
+        </div>
+          <br>
+  
+          <div>
+        <input  style="text-align:center"  class="form-control " name="currency" placeholder="currency">
+        </div>
+          <br>
+        
+           <div>
+        <input  style="text-align:center"  class="form-control " type="hidden" name="merchant_id" value="7308620">
+        </div>
+          <br>
+        
+         <div>
+        <input  style="text-align:center" class="form-control "  type="hidden" name="return_url" value="http://127.0.0.1:8000/login">
+        </div>
+          <br>
+         
+
+        <input  style="text-align:center"  class="form-control " type="hidden" name="cancel_url" value="https://message-link.bomerc.com/checkout">
+        
+     
+        <input  style="text-align:center"  class=" btn btn-primary float-right" type="submit" value="Pay Now">
+         </div>
+        </div>
+      </div>
+    
+  
+    </form>
+  
+  </div> 
+      
+        
+    
   </div>
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
@@ -171,6 +222,7 @@
 
   <!-- Template Main JS File -->
   <script src='{% static "js/main.js" %}'></script>
+
 </body>
 
 </html>

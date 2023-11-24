@@ -15,27 +15,25 @@ from django.contrib.auth.admin import GroupAdmin
 from django.contrib.auth.models import Group
 from django.contrib.admin import AdminSite
 from django.http import HttpResponseRedirect
-
+from .models import ChapaTransaction
 
 # admin.site.unregister(Group)
 
 
 import json
-from .models import Profile,SentMessage,Group,Contact_List,Contacts,Member,UserProfile,Sender,Receiver,Contactus
+from .models import Profile,SentMessage,Created_Group,Contact_List,Contacts,Member,UserProfile,Sender,Receiver,Contactus
 
 # Register your models here.
-admin.site.site_header  =  "Debo smsGateway"  
+admin.site.site_header  =  "Debo smsGateway"
+
 admin.site.site_title  =  "Debo  admin site"
 admin.site.index_title  =  "Debo sms Admin"
-# class MyModelAdmin(admin.ModelAdmin):
-#     def get_queryset(self, request):
-#         qs = super().get_queryset(request)
-#         if not request.user.is_superuser:
-#             qs = qs.filter(user=request.user)
-#         return qs
-     
-# class CustomGroupAdmin(GroupAdmin):
-#     pass
+
+class ChapaTransactionAdmin(admin.ModelAdmin):
+    list_display = 'first_name', 'last_name', 'email', 'amount', 'currency', 'status'
+
+
+admin.site.register(ChapaTransaction, ChapaTransactionAdmin)
 
 class CustomAdminSite(AdminSite):
     def index_view(self, request, extra_context=None):
@@ -72,7 +70,7 @@ class GroupAdmin(MyModelAdmin):
 
     index_link.short_description = "Home"
 
-admin.site.register(Group, GroupAdmin)        
+admin.site.register(Created_Group, GroupAdmin)        
 class AdProfile(admin.ModelAdmin):
     list_display= ('bio', 'image', 'name','email')
     list_filter= ('email',)

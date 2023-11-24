@@ -42,7 +42,7 @@
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container-fluid d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>MessageLink</h1>
         <!-- <span>.</span> -->
@@ -52,17 +52,17 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li>
-            <a href="index.html" class="active nave" style="color: #ffffff" class="nave">Home</a>
+            <a href="{% url 'index' %}" class="active nave" style="color: #ffffff" class="nave">Home</a>
           </li>
           <li class="nave">
-            <a href="index.html#features" class="nave" style="color: #ffffff">Features</a>
+            <a href="{% url 'index' %}#features" class="nave" style="color: #ffffff">Features</a>
           </li>
           <li class="nave">
-            <a href="index.html#pricing" class="nave" style="color: #ffffff">Pricing</a>
+            <a href="{% url 'index' %}#pricing" class="nave" style="color: #ffffff">Pricing</a>
           </li>
 
           <li>
-            <a href="index.html#contact" class="nave" style="color: #ffffff">Contact</a>
+            <a href="{% url 'index' %}#contact" class="nave" style="color: #ffffff">Contact</a>
           </li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -109,7 +109,7 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
+          <a href="{% url 'index' %}" class="logo d-flex align-items-center">
             <span style="color: #ffffff">MessageLink</span>
           </a>
           <p style="color: #ffffff">
@@ -126,16 +126,16 @@
         <div class="col-lg-3 col-6 footer-links">
           <h4 style="color: #ffffff">Pages</h4>
           <ul>
-            <li><a href="#" style="color: #ffffff">Home</a></li>
-            <li><a href="#" style="color: #ffffff">About us</a></li>
+            <li><a href="{% url 'index' %}" style="color: #ffffff">Home</a></li>
+            <li><a href="{% url 'index' %}" style="color: #ffffff">About us</a></li>
           </ul>
         </div>
 
         <div class="col-lg-4 col-6 footer-links">
           <h4 style="color: #ffffff">Our Services</h4>
           <ul>
-            <li><a href="#" style="color: #ffffff">Web Design</a></li>
-            <li><a href="#" style="color: #ffffff">Web Development</a></li>
+            <li><a href="{% url 'index' %}" style="color: #ffffff">Web Design</a></li>
+            <li><a href="{% url 'index' %}" style="color: #ffffff">Web Development</a></li>
           </ul>
         </div>
       </div>
@@ -155,9 +155,9 @@
   </div>
 
   <!-- Vendor JS Files -->
-  <script src='{% static "assets/vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
-  <script src='{% static "assets/vendor/purecounter/purecounter_vanilla.js" %}'></script>
-  <script src='{% static "assets/vendor/isotope-layout/isotope.pkgd.min.js" %}'></script>
+  <script src='{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+  <script src='{% static "vendor/purecounter/purecounter_vanilla.js" %}'></script>
+  <script src='{% static "vendor/isotope-layout/isotope.pkgd.min.js" %}'></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>

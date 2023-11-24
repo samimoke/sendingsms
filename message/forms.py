@@ -2,19 +2,21 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
 from django.contrib.auth.models import User
-from .models import UserProfile,Contactus
+from .models import UserProfile,Contactus,ChapaTransactionMixin
+from django.core.validators import validate_email
 
 class RegistrationForm(UserCreationForm):
     first_name=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
         
-    last_name=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    # last_name=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
         
     
     username=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
         
-    email = forms.CharField(widget=forms.EmailInput(attrs={'class':'form-control'}))
-    password1 = forms.CharField(label='password', widget=forms.PasswordInput(attrs={'class':'form-control'}))
-    password2 = forms.CharField(label='Repeat_password', widget=forms.PasswordInput(attrs={'class':'form-control'}))
+    # email = forms.CharField(widget=forms.EmailInput(attrs={'class':'form-control'}), validators=[validate_email])
+    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'class': 'form-control'}), validators=[validate_email])
+    password1 = forms.CharField( widget=forms.PasswordInput(attrs={'class':'form-control'}))
+    password2 = forms.CharField( widget=forms.PasswordInput(attrs={'class':'form-control'}))
         
     
     
@@ -22,7 +24,7 @@ class RegistrationForm(UserCreationForm):
     class Meta:
         model = User
         
-        fields = ('first_name','last_name','username','email', 'password1', 'password2')
+        fields = ('first_name','username','email', 'password1', 'password2')
 
     # def save(self, commit=False):
     #     user = super(RegistrationForm, self).save(commit=False)
@@ -47,5 +49,9 @@ class ContactForm(forms.ModelForm):
         model=Contactus
         fields=['name','email','subject','message']
     message = forms.CharField(widget=forms.Textarea)
+class PaymentForm(forms.ModelForm):
+    class Meta:
+        model=ChapaTransactionMixin
+        fields='__all__'
 
 

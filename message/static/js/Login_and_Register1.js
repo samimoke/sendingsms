@@ -52,38 +52,27 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 // for register vaalidation
 
 document.getElementById("registerForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent form submission
+  event.preventDefault(); // Prevent form submissio
   // / Get form values
   var email = document.getElementById("emailr").value.trim();
   var password = document.getElementById("passwordr").value.trim();
   var confirmPassword = document.getElementById("confirmPassword").value.trim();
-  var name = document.getElementById('name').value.trim()
-  var username = document.getElementById('username').value.trim()
+
   // Reset error messages
   document.getElementById("emailErrorr").textContent = "";
   document.getElementById("passwordErrorr").textContent = "";
   document.getElementById("confirmPasswordError").textContent = "";
-  document.getElementById("nameError").textContent= ""
-  document.getElementById("usernameError").textContent=""
-  // validate name here
-  if(name===""){
-    document.getElementById('nameError').textContent="name required"
-   
-  }
-  // validate username here
-  if(username===""){
-document.getElementById('usernameError').innerHTML="username is requirered"
 
-  }
+
   // Validate email
   if (email === "") {
     document.getElementById("emailErrorr").textContent = "email is required.";
-    // document.getElementById("emailr").style.borderColor = "red";
+    document.getElementById("emailr").style.borderColor = "red";
   }
   // Validate password
   if (password === "") {
     document.getElementById("passwordErrorr").textContent = "Password is required.";
-    // document.getElementById("passwordr").style.borderColor = "red";
+    document.getElementById("passwordr").style.borderColor = "red";
   }
   if (confirmPassword !== password) {
     document.getElementById("confirmPasswordError").textContent = "Password is does not match.";

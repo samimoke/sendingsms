@@ -2,7 +2,7 @@
 
   <header>     
     {% block extraheader %}     
-    <a href={% url 'index' %}> go home</a>     
+    <a href={% url 'index' %}> home</a>     
     {% endblock %} 
     {% block extraadminheader %}
     {{ block.super }}
@@ -33,9 +33,10 @@
     <body>
           {% if user.is_authenticated %}
           <div class='chr'>
+            <a href="{% url 'index' %}"> GO Home</a>
 <canvas id="myChart" width="600" height="400"></canvas>
           </div>
-<a href="{% url 'index' %}"> GO Home</a>
+
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
     var dates = {{ dates|safe }};

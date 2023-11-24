@@ -115,7 +115,7 @@
         <div class="row">
           <div class="col-md-8">
           
-            <h2 data-aos="fade-up" data-aos-delay="100" style="font-family:Montserrat;">Welcome to SMS Gateway - Simplify Your Communication!</h2>
+            <h2 data-aos="fade-up" data-aos-delay="100" style="font-family:Montserrat;">Welcome to Message Link- Simplify Your Communication!</h2>
             <p data-aos="fade-up" data-aos-delay="200" >Seamless SMS Communication Made Easy with Our Reliable Gateway</p>
           </div>
         
@@ -250,7 +250,7 @@
       <div class="container section-title" data-aos="fade-up" style="position: relative; z-index: 100" >
       
           <h2>Pricing</h2>
-          <p>At our SMS Gateway Website, we offer flexible and cost-effective pricing plans for our SMS Gateway services.</p>
+          <p>At our Message Link Website, we offer flexible and cost-effective pricing plans for our Message Link services.</p>
         
 
       </div>
@@ -272,7 +272,7 @@
                 <li><i class="bi bi-check"></i> <span>5 Mobile Ports max</span></li>
                 <li><i class="bi bi-check"></i> <span>200 SMS / Hour</span></li>
               </ul>
-              <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+              <div class="text-center"><a href="{% url 'checkout' %}" class="buy-btn">Buy Now</a></div>
             </div>
           </div>
 
@@ -291,13 +291,13 @@
                 <li><i class="bi bi-check"></i> <span>Custom ShortCode Name</span></li>
                 <li><i class="bi bi-check"></i> <span>0.25 Birr / SMS</span></li>
               </ul>
-              <div  class="text-center"><a href="#" style="background-color:#ff5e14" class="buy-btn">Buy Now</a></div>
+              <div  class="text-center"><a href="{% url 'checkout' %}" style="background-color:#ff5e14" class="buy-btn">Buy Now</a></div>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div class="pricing-item">
-              <h3>Deluxe</h3>
+              <h3>Premium</h3>
               <div style="background-color:#ff5e14" class="icon">
                 <i class="bi bi-send"></i>
               </div>
@@ -307,7 +307,7 @@
                 <li><i class="bi bi-check"></i> <span>MT and MO SMS Port</span></li>
                 <li><i class="bi bi-check"></i> <span>0.20 birr / SMS </span></li>
               </ul>
-              <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+              <div class="text-center"><a href="{% url 'checkout' %}" class="buy-btn">Buy Now</a></div>
             </div>
           </div>
 
@@ -475,7 +475,7 @@
 
                 <div class="col-md-12 text-center">
                   <div class="loading">Loading</div>
-                  <div class="error-message"></div>
+                  {% comment %} <div class="error-message"></div> {% endcomment %}
                   <div class="sent-message">Your message has been sent. Thank you!</div>
 
                   <button type="submit" style="background-color: #ff5e14;" >Send Message</button>

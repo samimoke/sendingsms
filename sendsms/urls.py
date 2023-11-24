@@ -1,5 +1,5 @@
 
-text/x-generic urls.py ( Python script, ASCII text executable, with CRLF line terminators )
+# text/x-generic urls.py ( Python script, ASCII text executable, with CRLF line terminators )
 """sendsms URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:

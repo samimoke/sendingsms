@@ -29,18 +29,10 @@
   <link href='{% static "vendor/bootstrap-icons/bootstrap-icons.css" %}' rel="stylesheet" />
   <!-- Template Main CSS File -->
   <link href='{% static "css/mainchoice.css" %}' rel="stylesheet" />
-  {% comment %} <link href='{% static "css/home.css" %}' rel="stylesheet" /> {% endcomment %}
-   <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+  <link href='{% static "css/choice.css" %}' rel="stylesheet" />
+  {% comment %} <link rel="stylesheet" href="{% static 'css/style2.css' %}"> {% endcomment %}
   <!-- <link rel="stylesheet" href="fast and reliables.css"> -->
   <style>
-    .hero {
-
-    /* Move the content down by 10% */
-    /* transform: translateY(-20%); */
-    max-height: 65vh;
-
-    overflow-y: hidden;
-}
     .colorbutton {
       background-color: #ff5e14;
     }
@@ -83,25 +75,75 @@
     </div>
   </header>
   <!-- End Header -->
+       {% if messages %}
+         {% for msg in messages %}
+         {% if msg.tags == 'error' %}
+     {% comment %} <div class="error-message" style="background-color: red;"> {% endcomment %}
+            <div class="alert alert-danger" style="color: red; position: fixed; top: 0; text-align:center; width: 100%;">{{ msg }}</div>
+               {% comment %} {{ msg }} {% endcomment %}
+            </div>
+         {% endif %}
+      {% endfor %}
+      {% endif %}
+    
   <div class="hero bg-white d-flex align-items-center justify-content-center vh-100">
     <div class="request_part container">
       <!-- <h2 class="request text-center">Send SMS to your groups or go to dashboard for more options</h2> -->
-      <div class="hero"> {% comment %} style="background-image: url({% static "image/img/3434.jpg" %}) linear-gradient(rgba(0, 0, 0, 0.7), #3551b5);"> {% endcomment %}
+    <div class="herom">
+         
+      {% if messages %}
+            {% for msg in messages %}
+         <form action='/send' method="post">
+					 {% csrf_token %}
+            <div class="row">
+                <div class="input-group">
+                    <input type="text" name="topic"  required>
+                    <label for="topic"><i class="fa-sharp fa-solid fa-eject"></i>Topic</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="time" >
+                    <label for="time"><i class="fa-solid fa-clock"></i>Time</label>
+                </div>
         
-        <form action="{% url 'connect' %}" method="POST">
-            {% csrf_token %}
-            <h2>Build Connection</h2>
-            <div class="input-group">
-                <input  type="text" name="ip" id="sign" required>
-                <label for="sign"><i class="fa-solid fa-sign-hanging"></i>IP Address</label>
             </div>
-
-            <button class="btn btn-primary" type="submit" value="connect">Connect<i class="fa-solid fa-paper-plane"></i></button>
+    
+            <div class="row">
+                <div class="input-group">
+                    <input type="text" name="meetlink" >
+                    <label for="meetlink"><i class="fa-solid fa-link"></i>Meeting Link</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="aspace" >
+                    <label for="aspace"><i class="fa-brands fa-space-awesome"></i>A-Space</label>
+                </div>
+            </div>
+               <div class="input-group">
+                    <input type="text" name="group_name" required>
+                    <label for="aspace"><i class="fa-brands fa-space-awesome"></i>group_name</label>
+                </div>
+            
+    
+            <div class="input-group">
+                <input type="text" name="sign"  >
+                <label for="sign"><i class="fa-solid fa-sign-hanging"></i>Sign</label>
+            </div>
+    
+            <div class="input-group">
+                <textarea name="message" rows="8" required></textarea>
+                <label for="message"><i class="fa-solid fa-comment"></i>Message</label>
+            </div>
+            
+                <button type="submit">Send<i class="fa-solid fa-paper-plane"></i></button>
         </form>
+         {% endfor %}
+        {% endif %}
     </div>
+   
+ 
+          
       
-     
-       
+        
+        </div>
       </div>
     </div>
   </div>

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Submission</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"  />
+    {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/style2.css' %}">
 </head>
 <body>
@@ -14,7 +15,7 @@
          {% for msg in messages %}
          {% if msg.tags == 'error' %}
      {% comment %} <div class="error-message" style="background-color: red;"> {% endcomment %}
-            <div class="alert alert-danger" style="color: white; position: fixed; top: 0; text-align:center; width: 100%;">{{ msg }}</div>
+            <div class="alert alert-danger" style="color: red; position: fixed; top: 0; text-align:center; width: 100%;">{{ msg }}</div>
                {% comment %} {{ msg }} {% endcomment %}
             </div>
          {% endif %}

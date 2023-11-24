@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate Your Account</title>
+</head>
+<body>
+    <h2>Activate Your Account</h2>
+    <p>Hi {{ user.username }},</p>
+    <p>Thank you for signing up! Please click the link below to activate your account:</p>
+    <a href="{{ domain }}/activate/{{ uid }}/{{ token }}">Activate Account</a>
+    <p>If you didn't request this activation, please ignore this email.</p>
+    <p>Best regards,</p>
+    <p>The GPTGO Team</p>
+</body>
+</html>
