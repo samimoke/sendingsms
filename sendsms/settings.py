@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from .config import SECRET_KEY,  EMAIL_HOST_PASSWORD,EMAIL_HOST_USER,SOCIAL_AUTH_FACEBOOK_KEY,SOCIAL_AUTH_FACEBOOK_SECRET
 from.config import  SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET,SOCIAL_AUTH_GOOGLE_OAUTH2_KEY
+from .config import CHAPA_SECRET,CHAPA_API_URL,CHAPA_WEBHOOK_URL,CHAPA_API_VERSION
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
@@ -40,9 +41,9 @@ PASSWORD_RESET_TIMEOUT=14400
 SECRET_KEY=SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -169,6 +170,12 @@ AUTHENTICATION_BACKENDS = (
 
     'django.contrib.auth.backends.ModelBackend',
 )
+CHAPA_SECRET = CHAPA_SECRET
+CHAPA_API_URL = CHAPA_API_URL
+# CHAPA_WEBHOOK_URL = 'https://6ba4-196-188-115-244.eu.ngrok.io/chapa-hook'
+CHAPA_WEBHOOK_URL=CHAPA_WEBHOOK_URL
+CHAPA_API_VERSION = CHAPA_API_VERSION
+CHAPA_TRANSACTION_MODEL = 'message.ChapaTransaction'
 # SOCIAL_AUTH_FACEBOOK_KEY='1002584504211501'
 SOCIAL_AUTH_FACEBOOK_KEY=SOCIAL_AUTH_FACEBOOK_KEY
 # SOCIAL_AUTH_FACEBOOK_SECRET='d6bfdac15d8cca0cbe955c3e63480ab2'
